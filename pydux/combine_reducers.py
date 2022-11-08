@@ -75,7 +75,7 @@ def combine_reducers(reducers):
                 raise Exception(msg)
             next_state[key] = next_state_for_key
             has_changed = (has_changed or
-                           next_state_for_key != previous_state_for_key)
+                           next_state_for_key is not previous_state_for_key)
         return next_state if has_changed else state
 
     return combination
